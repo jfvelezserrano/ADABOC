@@ -79,3 +79,4 @@ errorsTable <- as.data.frame(aml@leaderboard)
 # exitPath <- "../errors"
 
 write.csv(errorsTable, file = paste0("Errors_",datasetName,"_",maxNumModels,"models_MAE.csv"))
+print(errorsTable)
