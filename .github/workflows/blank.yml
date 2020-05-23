@@ -25,8 +25,8 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
       run: |
-        sudo apt install r-base-core
-        sudo apt-get install r-cran-ggplot2
+        sudo apt-get -qq install r-base-core
+        sudo apt-get -qq install r-cran-rcurl r-cran-bitops r-cran-rjson r-cran-statmod
         mkdir MyRlibs
         sudo R -e 'install.packages(c("h2o", "bit64"),lib="./MyRlibs")'
         sudo R < code/H2O_Code_Without_DL.R --no-save
