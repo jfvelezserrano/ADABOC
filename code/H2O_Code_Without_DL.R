@@ -1,7 +1,7 @@
 
 # Set environment ---------------------------------------------------------
 
-setwd("C:/Proyectos/UNIVERSIDAD/Artículos/Cópulas/R/Datos")
+setwd("datasets")
 
 
 # Dataset -----------------------------------------------------------------
@@ -75,7 +75,6 @@ aml <- h2o.automl(x = predictors,
 
 errorsTable <- as.data.frame(aml@leaderboard)
 
-exitPath <- "C:/Proyectos/UNIVERSIDAD/Artículos/Cópulas/R/ErroresNuevaVersionR/"
+# exitPath <- "../errors"
 
-write.csv(errorsTable,
-          file = paste0(exitPath,"Errors",datasetName,"_",maxNumModels,"models_MAE_20200311.csv"))
+write.csv(errorsTable, file = paste0("Errors_",datasetName,"_",maxNumModels,"models_MAE.csv"))

@@ -1,15 +1,26 @@
 # copula-learning-method
 
-## Install R 3.6
+## Requisites
+
+You need install R
+
+```
 add to /etc/apt/source.lst
 deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/
 sudo apt-get update
 sudo apt install r-base-core
+```
 
-In R execute
+## Execute the code
 
-install.packages("h20")
+You need install h20 package, but bit64 is convenient too.
 
-datasetName <- "Communities"
-dataPath <- "datasets"
-exitPath <- "errors"
+```
+R -e 'install.packages(c("h2o", "bit64"))'
+```
+
+Finally you can execute the project that will generate a file called *Errors_Communities_10models_MAE*
+
+```
+R < code/H2O_Code_Without_DL.R --no-save
+```
