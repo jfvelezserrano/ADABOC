@@ -33,8 +33,8 @@ testData$ID <- NULL
 
 
 # H2O environment ---------------------------------------------------------
-library(bit64,lib="./MyRlibs")
-library(h2o,lib="./MyRlibs")
+library(bit64,lib="~/MyRlibs")
+library(h2o,lib="~/MyRlibs")
 
 h2o.init(nthreads = -2)
 
