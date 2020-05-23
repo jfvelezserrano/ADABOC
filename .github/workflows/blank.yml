@@ -25,9 +25,7 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
       run: |
-        # sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-        # sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/"        
         sudo apt install r-base-core
         sudo R -e 'install.packages(c("h2o", "bit64"))'
-        R < code/H2O_Code_Without_DL.R --no-save
+        sudo R < code/H2O_Code_Without_DL.R --no-save
 
