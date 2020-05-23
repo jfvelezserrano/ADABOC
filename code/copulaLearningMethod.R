@@ -1,12 +1,12 @@
 ## required libraries
 
-library(magrittr)
-library(dplyr)
-library(data.table)
-library(VineCopula)
-library(ks)
-library(caTools)
-library(rapportools)
+library(magrittr,lib="~/MyRlibs")
+library(dplyr,lib="~/MyRlibs")
+library(data.table,lib="~/MyRlibs")
+library(VineCopula,lib="~/MyRlibs")
+library(ks,lib="~/MyRlibs")
+library(caTools,lib="~/MyRlibs")
+library(rapportools,lib="~/MyRlibs")
 
 ###################################################################
 ## function that develops the copula model                       ##
