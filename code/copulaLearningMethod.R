@@ -1,8 +1,7 @@
-codes_path <- 'C:/Users/juan.carrillo/Desktop/Articulos/articulo_copulas'
-setwd(codes_path)
-
 ## required libraries
-library(tidyverse)
+
+library(magrittr)
+library(dplyr)
 library(data.table)
 library(VineCopula)
 library(ks)
@@ -50,6 +49,7 @@ copulaLearningMethod <- function(trainingDataset = NULL,
                          verbosity = TRUE){
   
   ## required sources
+  setwd('code')
   source('comb_variables_generator.R')
   source('optim_copulas_BI.R')
   source('score_copula_opt.R')
@@ -57,6 +57,7 @@ copulaLearningMethod <- function(trainingDataset = NULL,
   source('fit_var_cop.R')
   source('eval_metric_functions.R')
   source('score_cop.R')
+  setwd('..')
   
   ## input consistence and data quality
   if (is.null(trainingDataset)){
