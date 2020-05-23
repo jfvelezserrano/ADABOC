@@ -26,6 +26,7 @@ jobs:
     - name: Run a multi-line script
       run: |
         sudo apt install r-base-core
-        sudo R -e 'install.packages(c("h2o", "bit64"))'
+        mkdir MyRlibs
+        sudo R -e 'install.packages(c("h2o", "bit64"),lib='./MyRlibs')'
         sudo R < code/H2O_Code_Without_DL.R --no-save
 
