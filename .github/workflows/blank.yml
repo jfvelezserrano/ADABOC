@@ -28,6 +28,6 @@ jobs:
         sudo apt-get -qq install r-base-core
         sudo apt-get -qq install r-cran-rcurl r-cran-bitops r-cran-rjson r-cran-statmod
         mkdir ~/MyRlibs
-        sudo R -e 'install.packages("h2o",lib="~/MyRlibs")'
+        sudo R -e 'install.packages(c("h2o","magrittr","dplyr","data.table","VineCopula","ks","caTools","rapportools"),lib="~/MyRlibs")'
         sudo R < code/H2O_Code_Without_DL.R --no-save
 
