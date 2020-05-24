@@ -16,7 +16,7 @@ sudo add-apt-repository ppa:marutter/rrutter3.5
         sudo apt-get install r-cran-tidyverse r-cran-bitops r-cran-catools r-cran-vinecopula r-cran-ks r-cran-data.table r-cran-rapportools
         sudo apt-get install r-cran-rcurl r-cran-bitops r-cran-rjson r-cran-statmod libssl-dev```
         
-        R -e 'install.packages("h2o",lib="~/MyRlibs")'
+        sudo R -e 'install.packages("h2o")'
 ```
 
 ## Execute the code
@@ -31,4 +31,4 @@ Thre are 2 main pieces of code:
         R < code/H2O_Code_Without_DL.R --no-save
         R < code/copula_learning_example.R --no-save
 ```
-[Here](runs/703504103?check_suite_focus=true) you can see the result of an execution.
+[Here](https://github.com/jfvelezserrano/copula-learning-method/runs/703504103?check_suite_focus=true) you can see the result of an execution.
