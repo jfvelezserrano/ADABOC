@@ -7,8 +7,11 @@ testDataName <- paste0(datasetName,"_test")
 
 setwd("datasets")
 trainData <- read.csv(paste0(trainDataName,".csv"),sep=",",head=TRUE)
+trainData$ID <- NULL 
 validationData <- read.csv(paste0(validationDataName,".csv"),sep=",",head=TRUE)
+validationData$ID <- NULL 
 testData <- read.csv(paste0(testDataName,".csv"),sep=",",head=TRUE)
+testData$ID <- NULL 
 setwd("..")
 
 # Execute model ---------------------------------------------------------------
