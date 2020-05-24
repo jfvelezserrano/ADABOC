@@ -21,9 +21,9 @@ sudo add-apt-repository ppa:marutter/rrutter3.5
 
 ## Execute the code
 
-Thre are 2 main pieces of code:
-- [H2O_Code_Without_DL.R](code/H2O_Code_Without_DL.R) - The test using the autoML of H2O (a compilation of some Machine Learning methods).
-- [copula_learning_example.R][code/copula_learning_example.R] - This script uses two important functions:
+At top levevel there are 2 scripts:
+- [H2O_Code_Without_DL.R](code/H2O_Code_Without_DL.R) - Which uses the autoML of H2O (a compilation of some Machine Learning methods) over the data with comparison purpose.
+- [copula_learning_example.R](code/copula_learning_example.R) - Which train and test the proposed model over a dataset. This script uses two important functions:
   - copulaLearningMethod() in [copulaLearningMethod.R](code/copulaLearningMethod.R) - The model training function.
   - copulaLearningMethodPredict() in [copulaLearningMethodPredict.R](code/copulaLearningMethodPredict.R) - The model scoring function.
 
@@ -31,4 +31,6 @@ Thre are 2 main pieces of code:
         R < code/H2O_Code_Without_DL.R --no-save
         R < code/copula_learning_example.R --no-save
 ```
-[Here](https://github.com/jfvelezserrano/copula-learning-method/runs/703504103?check_suite_focus=true) you can see the result of an execution.
+In both cases you can edit the top level scripts to select other dataset.
+
+[Here](https://github.com/jfvelezserrano/copula-learning-method/runs/703504103?check_suite_focus=true) you can see the result of an execution over the kdd1998 dataset.
