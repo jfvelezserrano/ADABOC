@@ -1,10 +1,10 @@
 # copula-learning-method
 
-An action that execute the whole project over a sample dataset is provided.
+This code implements a novel forecasting method based on bivariate copula. The method offers competitive results when it is compared with several popular machine learning techniques.
 
 ## Requisites
 
-The algorithms are programed on R. You can execute it on Windows, Linux or Mac. The [provided example](.github/workflows/blank.yml) is test on Ubuntu 18.04.
+The algorithms are programed on R. You can execute it on Windows, Linux or Mac. The [provided action](.github/workflows/blank.yml) uses Ubuntu 18.04.
 
 To repdroduce it, you need install R from the marutter repository which contains several needed precompiled packages. Also, the H2O is compiled.
 
@@ -33,4 +33,4 @@ At top levevel there are 2 scripts:
 ```
 In both cases you can edit the top level scripts to select other dataset.
 
-[Here](https://github.com/jfvelezserrano/copula-learning-method/runs/703504103?check_suite_focus=true) you can see the result of an execution over the kdd1998 dataset.
+An action that execute the whole project over a sample dataset is provided. [Here](https://github.com/jfvelezserrano/copula-learning-method/runs/703504103?check_suite_focus=true) you can see the result of an execution over the kdd1998 dataset.
