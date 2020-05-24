@@ -10,9 +10,11 @@ trainData      <- read.csv(trainDataName,      sep=",",head=TRUE)
 validationData <- read.csv(validationDataName, sep=",",head=TRUE)
 testData       <- read.csv(testDataName,       sep=",",head=TRUE)
 scoreData      <- read.csv(scoreDataName,      sep=",",head=TRUE)
-trainData$ID <- NULL
+
+trainData$ID      <- NULL
 validationData$ID <- NULL
-testData$ID <- NULL
+testData$ID       <- NULL
+scoreData$ID      <- NULL
 
 # Training a model ---------------------------------------------------------------
 print("Training model")
