@@ -1,6 +1,7 @@
 # Load data ---------------------------------------------------------------
 datasetName <- "Kdd1998"
 
+
 trainDataName <- paste0(datasetName,"_train")
 validationDataName <- paste0(datasetName,"_validation")
 testDataName <- paste0(datasetName,"_test")
