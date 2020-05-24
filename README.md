@@ -1,4 +1,4 @@
-# copula-learning-method
+# Copula learning method
 
 This code implements a novel forecasting method based on bivariate copula. The method offers competitive results when it is compared with several popular machine learning techniques.
 
