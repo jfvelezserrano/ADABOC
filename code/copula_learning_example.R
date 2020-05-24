@@ -1,5 +1,5 @@
 # Load data ---------------------------------------------------------------
-datasetName <- "Communities"
+datasetName <- "Kdd1998"
 
 trainDataName <- paste0(datasetName,"_train")
 validationDataName <- paste0(datasetName,"_validation")
@@ -14,5 +14,6 @@ setwd("..")
 # Execute model ---------------------------------------------------------------
 source("code/copulaLearningMethod.R")
 
-table <- copulaLearningMethod(trainingDataset = trainData, target_name = "TARGET", validationDataset = validationData, testDataset=testData)
+table <- copulaLearningMethod(trainingDataset = trainData, target_name = "TARGET", validationDataset = validationData, testDataset=testData,
+maxiter = 200,numBins = 2000,subsamplePercent = 0.1,earlyStoppingIterations = 10,minError = 14)
 print(table)
