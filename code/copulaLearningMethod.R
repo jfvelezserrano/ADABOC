@@ -56,15 +56,13 @@ copulaLearningMethod <- function(trainingDataset = NULL,
                          verbosity = TRUE){
   
   ## required sources
-  setwd('code')
-  source('comb_variables_generator.R')
-  source('optim_copulas_BI.R')
-  source('score_copula_opt.R')
-  source('best_iter_generator.R')
-  source('fit_var_cop.R')
-  source('eval_metric_functions.R')
-  source('score_cop.R')
-  setwd('..')
+  source('code/comb_variables_generator.R')
+  source('code/optim_copulas_BI.R')
+  source('code/score_copula_opt.R')
+  source('code/best_iter_generator.R')
+  source('code/fit_var_cop.R')
+  source('code/eval_metric_functions.R')
+  source('code/score_cop.R')
   
   ## input consistence and data quality
   if (is.null(trainingDataset)){
