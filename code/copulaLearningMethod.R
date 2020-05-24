@@ -327,8 +327,6 @@ copulaLearningMethod <- function(trainingDataset = NULL,
     
     ## we calculate the best copula for each variable related with the error
     
-    set.seed(1234)
-    
     copulas_fit[[i]] <- 
       fit_var_cop(train_data,
                   train_variables,
