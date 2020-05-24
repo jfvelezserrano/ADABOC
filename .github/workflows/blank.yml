@@ -25,9 +25,13 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
       run: |
-        sudo apt-get -qq install r-base-core
-        sudo apt-get -qq install r-cran-rcurl r-cran-bitops r-cran-rjson r-cran-statmod
+        sudo add-apt-repository ppa:marutter/rrutter3.5
+        sudo add-apt-repository ppa:marutter/c2d4u3.5
+        sudo apt-get update
+        sudo apt-get install r-base
+        sudo apt-get install r-cran-tidyverse r-cran-bitops r-cran-catools r-cran-vinecopula r-cran-ks r-cran-data.table r-cran-rapportools
+        sudo apt-get install r-cran-rcurl r-cran-bitops r-cran-rjson r-cran-statmod libssl-dev
         mkdir ~/MyRlibs
-        R -e 'install.packages(c("h2o","magrittr","dplyr","data.table","VineCopula","ks","caTools","rapportools"),lib="~/MyRlibs")'
+        R -e 'install.packages("h2o",lib="~/MyRlibs")'
         R < code/H2O_Code_Without_DL.R --no-save
         R < code/copula_learning_example.R --no-save
