@@ -42,6 +42,7 @@ library(rapportools)
 ## and the information needed for a posterior scoring            ##
 ###################################################################
 
+
 copulaLearningMethod <- function(trainingDataset = NULL,
                          target_name = NULL,
                          validationDataset = NULL,
