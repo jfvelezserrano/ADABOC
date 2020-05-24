@@ -14,7 +14,6 @@ library(ks)
 library(caTools)
 library(rapportools)
 
-
 ###################################################################
 ## function that develops the copula model                       ##
 ##                                                               ##
