@@ -14,7 +14,6 @@ library(ks)
 library(caTools)
 library(rapportools)
 
-
 ###################################################################
 ## function that develops the copula model                       ##
 ##                                                               ##
@@ -42,6 +41,7 @@ library(rapportools)
 ## train, validation and test tables, the iteration process      ##
 ## and the information needed for a posterior scoring            ##
 ###################################################################
+
 
 copulaLearningMethod <- function(trainingDataset = NULL,
                          target_name = NULL,
@@ -324,6 +324,7 @@ copulaLearningMethod <- function(trainingDataset = NULL,
     }
     
     ## we calculate the best copula for each variable related with the error
+    
     copulas_fit[[i]] <- 
       fit_var_cop(train_data,
                   train_variables,

@@ -10,10 +10,13 @@ trainData      <- read.csv(trainDataName,      sep=",",head=TRUE)
 validationData <- read.csv(validationDataName, sep=",",head=TRUE)
 testData       <- read.csv(testDataName,       sep=",",head=TRUE)
 scoreData      <- read.csv(scoreDataName,      sep=",",head=TRUE)
+trainData$ID <- NULL
+validationData$ID <- NULL
+testData$ID <- NULL
 
-# Train model ---------------------------------------------------------------
+# Training a model ---------------------------------------------------------------
+print("Training model")
 source("code/copulaLearningMethod.R")
-
 model <- copulaLearningMethod(trainingDataset = trainData, 
                               target_name = "TARGET", 
                               validationDataset = validationData, 
@@ -24,9 +27,8 @@ model <- copulaLearningMethod(trainingDataset = trainData,
                               earlyStoppingIterations = 10,
                               minError = 14)
 
-# Use model ---------------------------------------------------------------
+# Using the model ---------------------------------------------------------------
+print("Using model")
 source("code/copulaLearningMethodPredict.R")
-
 table  <- copulaLearningMethodPredict(scoreDataset = as.data.frame(scoreData), copulaModel = model)
-
 print(table)

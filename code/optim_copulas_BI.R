@@ -1,6 +1,7 @@
 ## Fix seed of the process of simulation
 set.seed(1234)
 
+
 ## function to calculate the cdf of a variable via kernel estimators
 ker_cdf <- function(x){
   predict(ks::kcde(x), x = as.matrix(x))
@@ -75,7 +76,7 @@ optim_copula <- function(data, pct_sample){
                   37,
                   38,
                   39,
-                  40
+                  40                  
     )
     
     itau_families <- c(1,2,3,4,5,6,13,14,16,23,24,26,33,34,36)
