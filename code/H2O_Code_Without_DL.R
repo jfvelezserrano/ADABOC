@@ -1,38 +1,34 @@
 
 # Set environment ---------------------------------------------------------
 
-setwd("datasets")
-
-
 # Dataset -----------------------------------------------------------------
 
+datasetDirName <- "datasets"
 datasetName <- "Communities"
 
 # Load data ---------------------------------------------------------------
 
-trainDataName <- paste0(datasetName,"_train")
-validationDataName <- paste0(datasetName,"_validation")
-testDataName <- paste0(datasetName,"_test")
+trainDataName      <- paste0(datasetDirName, "/", datasetName,"_train",      ".csv")
+validationDataName <- paste0(datasetDirName, "/", datasetName,"_validation", ".csv")
+testDataName       <- paste0(datasetDirName, "/", datasetName,"_test",       ".csv")
 
-# Read csv
-
-trainData <- read.csv(paste0(trainDataName,".csv"), stringsAsFactors = FALSE)
-validationData <- read.csv(paste0(validationDataName,".csv"), stringsAsFactors = FALSE)
-testData <- read.csv(paste0(testDataName,".csv"), stringsAsFactors = FALSE)
+trainData      <- read.csv(trainDataName,      stringsAsFactors = FALSE)
+validationData <- read.csv(validationDataName, stringsAsFactors = FALSE)
+testData       <- read.csv(testDataName,       stringsAsFactors = FALSE)
 
 
 # Data preparation --------------------------------------------------------
 
-trainData_ID <- trainData$ID
+trainData_ID      <- trainData$ID
 validationData_ID <- validationData$ID
-testData_ID <- testData$ID
+testData_ID       <- testData$ID
 
-trainData$ID <- NULL
+trainData$ID      <- NULL
 validationData$ID <- NULL
-testData$ID <- NULL
+testData$ID       <- NULL
 
 
-# H2O environment ---------------------------------------------------------
+# H2O library ---------------------------------------------------------
 library(h2o,lib="~/MyRlibs")
 
 h2o.init(nthreads = -2)
@@ -75,8 +71,5 @@ aml <- h2o.automl(x = predictors,
 errorsTable <- as.data.frame(aml@leaderboard)
 
 # exitPath <- "../errors"
-
-write.csv(errorsTable, file = paste0("Errors_",datasetName,"_",maxNumModels,"models_MAE.csv"))
+# write.csv(errorsTable, file = paste0("Errors_",datasetName,"_",maxNumModels,"models_MAE.csv"))
 print(errorsTable)
-
-setwd("..")

@@ -1,10 +1,11 @@
 # Load data ---------------------------------------------------------------
-datasetName <- "Kdd1998"
+datasetName    <- "Kdd1998"
+datasetDirName <- "datasets"
 
-trainDataName      <- paste0("datasets/",datasetName,"_train"     ,".csv")
-validationDataName <- paste0("datasets/",datasetName,"_validation",".csv")
-testDataName       <- paste0("datasets/",datasetName,"_test"      ,".csv")
-scoreDataName      <- paste0("datasets/",datasetName,"_score"     ,".csv")
+trainDataName      <- paste0(datasetDirName, "/", datasetName,"_train",      ".csv")
+validationDataName <- paste0(datasetDirName, "/", datasetName,"_validation", ".csv")
+testDataName       <- paste0(datasetDirName, "/", datasetName,"_test",       ".csv")
+scoreDataName      <- paste0(datasetDirName, "/", datasetName,"_score",      ".csv")
 
 trainData      <- read.csv(trainDataName,      sep=",",head=TRUE)
 validationData <- read.csv(validationDataName, sep=",",head=TRUE)
