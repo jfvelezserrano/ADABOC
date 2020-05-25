@@ -31,7 +31,7 @@ library(rapportools)
 ## - earlyStoppingIterations: number of iterations without       ##
 ## improvement until stopping the model                          ##
 ## - evalMetric: metric to evaluate the predictions              ##
-## - minError: tolerance level                                    ##
+## - epsilon: tolerance level                                    ##
 ## - verbosity: if the model shows the results iterations by     ##
 ## iterations                                                    ##
 ##                                                               ##
@@ -47,12 +47,12 @@ copulaLearningMethod <- function(trainingDataset = NULL,
                          target_name = NULL,
                          validationDataset = NULL,
                          testDataset = NULL,
-                         maxiter = 10,
-                         numBins = 500,
+                         maxiter = 200,
+                         numBins = 2000,
                          subsamplePercent = NULL,
                          earlyStoppingIterations = 0,
                          evalMetric  = "MAE",
-                         minError = 5,
+                         epsilon = 14,
                          verbosity = TRUE){
   
   ## required sources
@@ -103,12 +103,12 @@ copulaLearningMethod <- function(trainingDataset = NULL,
     earlyStoppingIterations <- floor(earlyStoppingIterations)
   }
   
-  if (!is.numeric(minError) | (minError<0)){
-    stop('You have to include a non-negative number as minError')
-  } else if (is.numeric(minError) & length(minError)>1){
-    stop('You have to give only one value as minError')
+  if (!is.numeric(epsilon) | (epsilon<0)){
+    stop('You have to include a non-negative number as epsilon')
+  } else if (is.numeric(epsilon) & length(epsilon)>1){
+    stop('You have to give only one value as epsilon')
   } else {
-    minError <- floor(minError)
+    epsilon <- floor(epsilon)
   }
   
   if (!is.numeric(numBins) | (numBins<=0)){
@@ -307,15 +307,15 @@ copulaLearningMethod <- function(trainingDataset = NULL,
       
       train_errors$error <- round(eval_metric_functions[[evalMetric]]
                                    (train_data$Target,
-                                     train_data$prediction), minError)
+                                     train_data$prediction), epsilon)
       
       valid_errors$error <- round(eval_metric_functions[[evalMetric]]
                                    (valid_data$Target,
-                                     valid_data$prediction), minError)
+                                     valid_data$prediction), epsilon)
       
       test_errors$error <- round(eval_metric_functions[[evalMetric]]
                                   (test_data$Target,
-                                    test_data$prediction), minError)
+                                    test_data$prediction), epsilon)
       
     } else  {
       
@@ -338,8 +338,8 @@ copulaLearningMethod <- function(trainingDataset = NULL,
     
     ## condition to fix infinite loops for a constant best aic value
     if (i >= 2) {
-      if (round(copulas_fit_var[[i]]$aic[which.min(copulas_fit_var[[i]]$aic)], minError)==
-          round(copulas_fit_var[[i - 1]]$aic[which.min(copulas_fit_var[[i - 1]]$aic)], minError)){
+      if (round(copulas_fit_var[[i]]$aic[which.min(copulas_fit_var[[i]]$aic)], epsilon)==
+          round(copulas_fit_var[[i - 1]]$aic[which.min(copulas_fit_var[[i - 1]]$aic)], epsilon)){
         copulas_fit_var[[i]]$aic[which.min(copulas_fit_var[[i]]$aic)] <- 0
       }
     }
@@ -385,19 +385,19 @@ copulaLearningMethod <- function(trainingDataset = NULL,
     train_errors_var_iter <- data.frame(var = names(variables_table)[copula_iter],
                                          error = round(eval_metric_functions[[evalMetric]]
                                                             (train_data$Target,
-                                                              errors_iter[[1]]$prediction), minError)
+                                                              errors_iter[[1]]$prediction), epsilon)
     )
     
     valid_errors_var_iter <- data.frame(var = names(variables_table)[copula_iter],
                                          error = round(eval_metric_functions[[evalMetric]]
                                                               (valid_data$Target,
-                                                                errors_iter[[2]]$prediction), minError)
+                                                                errors_iter[[2]]$prediction), epsilon)
     )
     
     test_errors_var_iter <- data.frame(var = names(variables_table)[copula_iter],
                                         error = round(eval_metric_functions[[evalMetric]]
                                                              (test_data$Target,
-                                                               errors_iter[[3]]$prediction), minError)
+                                                               errors_iter[[3]]$prediction), epsilon)
     )
     
     iterations_info <- rbind(iterations_info,
