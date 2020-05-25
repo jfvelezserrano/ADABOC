@@ -1,22 +1,37 @@
 # Load data ---------------------------------------------------------------
-datasetName <- "Kdd1998"
+datasetName    <- "Kdd1998"
+datasetDirName <- "datasets"
 
-trainDataName <- paste0(datasetName,"_train")
-validationDataName <- paste0(datasetName,"_validation")
-testDataName <- paste0(datasetName,"_test")
+trainDataName      <- paste0(datasetDirName, "/", datasetName,"_train",      ".csv")
+validationDataName <- paste0(datasetDirName, "/", datasetName,"_validation", ".csv")
+testDataName       <- paste0(datasetDirName, "/", datasetName,"_test",       ".csv")
+scoreDataName      <- paste0(datasetDirName, "/", datasetName,"_score",      ".csv")
 
-setwd("datasets")
-trainData <- read.csv(paste0(trainDataName,".csv"),sep=",",head=TRUE)
-trainData$ID <- NULL 
-validationData <- read.csv(paste0(validationDataName,".csv"),sep=",",head=TRUE)
-validationData$ID <- NULL 
-testData <- read.csv(paste0(testDataName,".csv"),sep=",",head=TRUE)
-testData$ID <- NULL 
-setwd("..")
+trainData      <- read.csv(trainDataName,      sep=",",head=TRUE)
+validationData <- read.csv(validationDataName, sep=",",head=TRUE)
+testData       <- read.csv(testDataName,       sep=",",head=TRUE)
+scoreData      <- read.csv(scoreDataName,      sep=",",head=TRUE)
 
-# Execute model ---------------------------------------------------------------
+trainData$ID      <- NULL
+validationData$ID <- NULL
+testData$ID       <- NULL
+scoreData$ID      <- NULL
+
+# Training a model ---------------------------------------------------------------
+print("Training model")
 source("code/copulaLearningMethod.R")
+model <- copulaLearningMethod(trainingDataset = trainData, 
+                              target_name = "TARGET", 
+                              validationDataset = validationData, 
+                              testDataset=testData,
+                              maxiter = 200,
+                              numBins = 2000,
+                              subsamplePercent = 10,
+                              earlyStoppingIterations = 10,
+                              minError = 14)
 
-table <- copulaLearningMethod(trainingDataset = trainData, target_name = "TARGET", validationDataset = validationData, testDataset=testData,
-maxiter = 200,numBins = 2000,subsamplePercent = 10,earlyStoppingIterations = 10,minError = 14)
+# Using the model ---------------------------------------------------------------
+print("Using model")
+source("code/copulaLearningMethodPredict.R")
+table  <- copulaLearningMethodPredict(scoreDataset = as.data.frame(scoreData), copulaModel = model)
 print(table)

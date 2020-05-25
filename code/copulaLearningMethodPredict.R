@@ -16,7 +16,7 @@ copulaLearningMethodPredict <- function(scoreDataset = NULL,
                            copulaModel = NULL){
   
   ## required sources
-  source('score_copula_opt.R')
+  source('code/score_copula_opt.R')
   
   ## input consistence
   if (is.null(scoreDataset)){
