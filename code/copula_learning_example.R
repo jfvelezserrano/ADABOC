@@ -33,5 +33,5 @@ model <- copulaLearningMethod(trainingDataset = trainData,
 # Using the model ---------------------------------------------------------------
 print("Using model")
 source("code/copulaLearningMethodPredict.R")
-table  <- copulaLearningMethodPredict(scoreDataset = as.data.frame(scoreData), copulaModel = model)
+# table  <- copulaLearningMethodPredict(scoreDataset = as.data.frame(scoreData), copulaModel = model)
 print(table)
