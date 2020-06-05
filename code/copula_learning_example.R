@@ -1,5 +1,5 @@
 # Load data ---------------------------------------------------------------
-datasetName    <- "communities"
+datasetName    <- "kdd"
 datasetDirName <- "datasets"
 
 trainDataName      <- paste0(datasetDirName, "/", datasetName,"_train",      ".csv")
