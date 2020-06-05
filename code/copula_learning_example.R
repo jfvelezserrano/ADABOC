@@ -1,5 +1,5 @@
 # Load data ---------------------------------------------------------------
-datasetName    <- "Kdd1998"
+datasetName    <- "kdd"
 datasetDirName <- "datasets"
 
 trainDataName      <- paste0(datasetDirName, "/", datasetName,"_train",      ".csv")
@@ -28,7 +28,7 @@ model <- copulaLearningMethod(trainingDataset = trainData,
                               numBins = 2000,
                               subsamplePercent = 10,
                               earlyStoppingIterations = 10,
-                              minError = 14)
+                              epsilon = 14)
 
 # Using the model ---------------------------------------------------------------
 print("Using model")
