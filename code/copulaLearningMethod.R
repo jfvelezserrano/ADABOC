@@ -214,8 +214,8 @@ copulaLearningMethod <- function(trainingDataset = NULL,
   }
   
   ## we store all the non unary variables in a  table 
-  variables_table <- mapply(c, check_unary_variables, valid_data)
-  variables_table <- mapply(c, variables_table, test_data)
+  variables_table <- mapply(c, check_unary_variables, valid_data, SIMPLIFY=ALL)
+  variables_table <- mapply(c, variables_table, test_data, SIMPLIFY=ALL)
   
   variables_table <- variables_table[names(variables_table) %in% non_unary_variables[non_unary_variables!="Target"]]
   train_variables <- train_variables[names(train_variables) %in% non_unary_variables[non_unary_variables!="Target"]]
