@@ -5,17 +5,17 @@ datasetDirName <- "datasets"
 trainDataName      <- paste0(datasetDirName, "/", datasetName,"_train",      ".csv")
 validationDataName <- paste0(datasetDirName, "/", datasetName,"_validation", ".csv")
 testDataName       <- paste0(datasetDirName, "/", datasetName,"_test",       ".csv")
-scoreDataName      <- paste0(datasetDirName, "/", datasetName,"_score",      ".csv")
+# scoreDataName      <- paste0(datasetDirName, "/", datasetName,"_score",      ".csv")
 
 trainData      <- read.csv(trainDataName,      sep=",",head=TRUE)
 validationData <- read.csv(validationDataName, sep=",",head=TRUE)
 testData       <- read.csv(testDataName,       sep=",",head=TRUE)
-scoreData      <- read.csv(scoreDataName,      sep=",",head=TRUE)
+# scoreData      <- read.csv(scoreDataName,      sep=",",head=TRUE)
 
 trainData$ID      <- NULL
 validationData$ID <- NULL
 testData$ID       <- NULL
-scoreData$ID      <- NULL
+# scoreData$ID      <- NULL
 
 # Training a model ---------------------------------------------------------------
 print("Training model")
