@@ -38,17 +38,22 @@ score_cop <- function(train_aux,
     row_start <- 1
     row_end <- min(c(floor(row_start + (1000000/numBins)),n))
     for (i in 1:maxiter){
-      train_aux_2 <- data.frame(train_aux[row_start:row_end,])
-      colnames(train_aux_2) <- colnames(train_aux)
-      results_aux <- score_copula_opt(input_data = train_aux_2,
-                                      numBins = numBins,
-                                      optim_copula = best_copula,
-                                      train =  train_var)
-      
-      results <- rbind(results, results_aux)
-      row_start <- row_end + 1
-      row_end <- min(c(floor(row_start + (1000000/numBins)),n))
+          
+     if (row_start <= row_end){
+            train_aux_2 <- data.frame(train_aux[row_start:row_end,])
+            colnames(train_aux_2) <- colnames(train_aux)
+            results_aux <- score_copula_opt(input_data = train_aux_2,
+                                            numBins = numBins,
+                                            optim_copula = best_copula,
+                                            train =  train_var)
+
+            results <- rbind(results, results_aux)
+            row_start <- row_end + 1
+            row_end <- min(c(floor(row_start + (1000000/numBins)),n))
+      }      
+    
     }
+        
   } else {
     results <- score_copula_opt(input_data = train_aux,
                                 numBins = numBins,
