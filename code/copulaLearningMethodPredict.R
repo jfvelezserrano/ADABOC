@@ -77,12 +77,12 @@ copulaLearningMethodPredict <- function(scoreDataset = NULL,
       if (j == 1){
         coincidences <- data.frame(apply(as.matrix(values_scores[,j]),
                                           1,
-                                          function(x){x %in% copulaModel$copulaModel$iterations[[i]]$inf_iter[,j]}))
+                                          function(x){x %in% as.matrix(copulaModel$copulaModel$iterations[[i]]$inf_iter[,..j])}))
       } else {
         coincidences <- cbind(coincidences,
                                apply(as.matrix(values_scores[,j]),
                                      1,
-                                     function(x){x %in% copulaModel$copulaModel$iterations[[i]]$inf_iter[,j]}))
+                                     function(x){x %in% as.matrix(copulaModel$copulaModel$iterations[[i]]$inf_iter[,..j])}))
       }
     }
     
@@ -136,7 +136,8 @@ copulaLearningMethodPredict <- function(scoreDataset = NULL,
       colnames(info_iter)[1:dim_iter] <- var_iter
       names(results)[names(results) == 'error'] <- 'error_cop'
       
-      results2 <- rbind(results[,c(var_iter, "error_cop")],
+      iter_compose <- c(var_iter, "error_cop")
+      results2 <- rbind(results[,..iter_compose],
                         info_iter)
       
       results3 <- copulaModel$copulaModel$train %>% left_join(results2, by = var_iter)

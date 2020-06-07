@@ -82,7 +82,8 @@ score_cop <- function(train_aux,
                                  ind_indepCopula = 0)
   results <- results %>% left_join(train_aux, by = colnames(train_aux)[1])
   errors_aux[[5]] <- best_copula
-  info_iter <- results[,c(colnames(train_aux)[1], 'error_cop')]
+  names <- c(colnames(train_aux)[1], 'error_cop')
+  info_iter <- results[,..names]
   info_iter <- info_iter[!duplicated(info_iter),]
   errors_aux[[6]] <- info_iter
   

@@ -42,8 +42,16 @@ library(rapportools)
 ## and the information needed for a posterior scoring            ##
 ###################################################################
 
+## required sources
+source('code/comb_variables_generator.R')
+source('code/optim_copulas_BI.R')
+source('code/score_copula_opt.R')
+source('code/best_iter_generator.R')
+source('code/fit_var_cop.R')
+source('code/eval_metric_functions.R')
+source('code/score_cop.R')
 
-copulaLearningMethod <- function(trainingDataset = NULL,
+copulaLearningMethod<- function(trainingDataset = NULL,
                          target_name = NULL,
                          validationDataset = NULL,
                          testDataset = NULL,
@@ -54,16 +62,7 @@ copulaLearningMethod <- function(trainingDataset = NULL,
                          evalMetric  = "MAE",
                          epsilon = 14,
                          verbosity = TRUE){
-  
-  ## required sources
-  source('code/comb_variables_generator.R')
-  source('code/optim_copulas_BI.R')
-  source('code/score_copula_opt.R')
-  source('code/best_iter_generator.R')
-  source('code/fit_var_cop.R')
-  source('code/eval_metric_functions.R')
-  source('code/score_cop.R')
-  
+
   ## input consistence and data quality
   if (is.null(trainingDataset)){
     stop('You have to include a training table')
@@ -214,8 +213,8 @@ copulaLearningMethod <- function(trainingDataset = NULL,
   }
   
   ## we store all the non unary variables in a  table 
-  variables_table <- mapply(c, check_unary_variables, valid_data, SIMPLIFY=FALSE)
-  variables_table <- mapply(c, variables_table, test_data, SIMPLIFY=FALSE)
+  variables_table <- mapply(c, check_unary_variables, valid_data)
+  variables_table <- mapply(c, variables_table, test_data)
   
   variables_table <- variables_table[names(variables_table) %in% non_unary_variables[non_unary_variables!="Target"]]
   train_variables <- train_variables[names(train_variables) %in% non_unary_variables[non_unary_variables!="Target"]]
