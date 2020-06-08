@@ -60,7 +60,7 @@ inputs    <- names(inputVars)
 
 # AutoML ----------------------------------------------------------------
 
-mySeed <- 12345
+mySeed <- 1234
 set.seed(mySeed)
 maxNumModels <- 10
 
