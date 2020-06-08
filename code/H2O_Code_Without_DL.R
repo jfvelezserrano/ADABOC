@@ -16,7 +16,6 @@ trainData      <- read.csv(trainDataName,      stringsAsFactors = FALSE)
 validationData <- read.csv(validationDataName, stringsAsFactors = FALSE)
 testData       <- read.csv(testDataName,       stringsAsFactors = FALSE)
 
-
 # Data preparation --------------------------------------------------------
 
 trainData_ID      <- trainData$ID
