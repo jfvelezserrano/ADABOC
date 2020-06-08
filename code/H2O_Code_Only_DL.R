@@ -1,7 +1,6 @@
 # H2O library ---------------------------------------------------------
 library(h2o,lib="~/MyRlibs")
 
-
 # Specify dataset ---------------------------------------------------------
 
 datasetDirName <- "datasets"
@@ -76,7 +75,7 @@ aml <- h2o.automl(x = inputs,
                   max_runtime_secs = 25500, 
                   max_models = maxNumModels,
                   stopping_metric = "MAE",
-                  stopping_rounds = 100,
+                  stopping_rounds = 10,
                   sort_metric = "MAE",
                   include_algos = c("DeepLearning"),
                   seed = mySeed)
