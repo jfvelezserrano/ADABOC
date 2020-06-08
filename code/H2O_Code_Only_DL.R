@@ -1,7 +1,6 @@
 # H2O library ---------------------------------------------------------
 library(h2o,lib="~/MyRlibs")
 
-
 # Specify dataset ---------------------------------------------------------
 
 datasetDirName <- "datasets"
