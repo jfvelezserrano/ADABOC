@@ -4,7 +4,7 @@
 # Dataset -----------------------------------------------------------------
 
 datasetDirName <- "datasets"
-datasetName <- "Combined_cycle"
+datasetName <- "Concrete_sinAge"
 
 # Load data ---------------------------------------------------------------
 
