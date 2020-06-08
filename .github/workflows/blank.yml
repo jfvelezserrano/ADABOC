@@ -33,5 +33,7 @@ jobs:
         sudo apt-get install r-cran-rcurl r-cran-bitops r-cran-rjson r-cran-statmod libssl-dev
         mkdir ~/MyRlibs
         R -e 'install.packages("h2o",lib="~/MyRlibs")'
-        R < code/H2O_Code_Without_DL.R --no-save
+        # R < code/H2O_Code_Without_DL.R --no-save
+        R < H2O_Code_Only_DL.R --no-save
         # R < code/copula_learning_example.R --no-save
+        
