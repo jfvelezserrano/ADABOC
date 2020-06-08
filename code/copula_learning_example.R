@@ -28,7 +28,7 @@ model <- copulaLearningMethod(trainingDataset = trainData,
                               testDataset=testData,
                               maxiter = 200,
                               numBins = 2000,
-                              subsamplePercent = 60,
+                              subsamplePercent = 50,
                               earlyStoppingIterations = 10,
                               epsilon = 14)
 
