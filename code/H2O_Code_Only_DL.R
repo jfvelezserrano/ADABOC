@@ -4,7 +4,7 @@ library(h2o,lib="~/MyRlibs")
 # Specify dataset ---------------------------------------------------------
 
 datasetDirName <- "datasets"
-datasetName <- "electrical_grid"
+datasetName <- "Airfoil"
 
 # Load data ---------------------------------------------------------------
 
