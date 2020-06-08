@@ -1,7 +1,7 @@
 options(width=180)
 
 # Load data --------------------------------------------------------------
-datasetName    <- "Communities"
+datasetName    <- "communities_unnormalized"
 datasetDirName <- "datasets"
 
 trainDataName      <- paste0(datasetDirName, "/", datasetName,"_train",      ".csv")
@@ -28,7 +28,7 @@ model <- copulaLearningMethod(trainingDataset = trainData,
                               testDataset=testData,
                               maxiter = 200,
                               numBins = 2000,
-                              subsamplePercent = 50,
+                              subsamplePercent = 60,
                               earlyStoppingIterations = 10,
                               epsilon = 14)
 
