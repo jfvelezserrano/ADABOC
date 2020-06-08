@@ -4,7 +4,7 @@
 # Dataset -----------------------------------------------------------------
 
 datasetDirName <- "datasets"
-datasetName <- "kdd"
+datasetName <- "Communities"
 
 # Load data ---------------------------------------------------------------
 
