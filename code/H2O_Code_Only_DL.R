@@ -4,7 +4,7 @@ library(h2o,lib="~/MyRlibs")
 # Specify dataset ---------------------------------------------------------
 
 datasetDirName <- "datasets"
-datasetName <- "communities_unnormalized"
+datasetName <- "Concrete_sinAge"
 
 # Load data ---------------------------------------------------------------
 
