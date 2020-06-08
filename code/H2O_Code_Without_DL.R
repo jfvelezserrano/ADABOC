@@ -4,7 +4,7 @@
 # Dataset -----------------------------------------------------------------
 
 datasetDirName <- "datasets"
-datasetName <- "communities_unnormalized"
+datasetName <- "electrical_grid"
 
 # Load data ---------------------------------------------------------------
 
