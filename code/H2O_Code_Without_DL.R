@@ -64,7 +64,7 @@ aml <- h2o.automl(x = predictors,
                   stopping_metric = "MAE",
                   stopping_rounds = 10,
                   sort_metric = "MAE",
-                  exclude_algos = c("StackedEnsemble"),
+                  exclude_algos = c("DeepLearning","StackedEnsemble"),
                   seed = mySeed)
 
 errorsTable <- as.data.frame(aml@leaderboard)
