@@ -4,7 +4,7 @@
 # Dataset -----------------------------------------------------------------
 
 datasetDirName <- "datasets"
-datasetName <- "Communities"
+datasetName <- "communities_unnormalized"
 
 # Load data ---------------------------------------------------------------
 
