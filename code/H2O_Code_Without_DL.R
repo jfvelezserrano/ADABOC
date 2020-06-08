@@ -4,7 +4,7 @@
 # Dataset -----------------------------------------------------------------
 
 datasetDirName <- "datasets"
-datasetName <- "communities_unnormalized"
+datasetName <- "kdd"
 
 # Load data ---------------------------------------------------------------
 
@@ -48,7 +48,7 @@ predictors <- names(inputs)
 
 # AutoML ----------------------------------------------------------------
 
-mySeed <- 12345
+mySeed <- 1234
 set.seed(mySeed)
 maxNumModels <- 10
 
