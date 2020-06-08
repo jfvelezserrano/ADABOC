@@ -4,7 +4,7 @@
 # Dataset -----------------------------------------------------------------
 
 datasetDirName <- "datasets"
-datasetName <- "Airfoil"
+datasetName <- "Concrete"
 
 # Load data ---------------------------------------------------------------
 
