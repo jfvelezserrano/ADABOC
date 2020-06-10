@@ -19,6 +19,7 @@ validationData$ID <- NULL
 testData$ID       <- NULL
 scoreData$ID      <- NULL
 
+
 # Training a model ---------------------------------------------------------------
 print("Training model")
 source("code/copulaLearningMethod.R")
