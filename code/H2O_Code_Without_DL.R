@@ -27,6 +27,21 @@ validationData$ID <- NULL
 testData$ID       <- NULL
 
 
+trainData$lat      <- NULL
+trainData$lon      <- NULL
+trainData$DEM      <- NULL
+trainData$Slope      <- NULL
+
+validationData$lat      <- NULL
+validationData$lon      <- NULL
+validationData$DEM      <- NULL
+validationData$Slope      <- NULL
+
+testData$lat      <- NULL
+testData$lon      <- NULL
+testData$DEM      <- NULL
+testData$Slope      <- NULL
+
 # H2O library ---------------------------------------------------------
 library(h2o,lib="~/MyRlibs")
 
