@@ -19,25 +19,6 @@ validationData$ID <- NULL
 testData$ID       <- NULL
 scoreData$ID      <- NULL
 
-trainData$lat      <- NULL
-trainData$lon      <- NULL
-trainData$DEM      <- NULL
-trainData$Slope      <- NULL
-
-validationData$lat      <- NULL
-validationData$lon      <- NULL
-validationData$DEM      <- NULL
-validationData$Slope      <- NULL
-
-testData$lat      <- NULL
-testData$lon      <- NULL
-testData$DEM      <- NULL
-testData$Slope      <- NULL
-
-validationData$ID <- NULL
-testData$ID       <- NULL
-scoreData$ID      <- NULL
-
 # Training a model ---------------------------------------------------------------
 print("Training model")
 source("code/copulaLearningMethod.R")
