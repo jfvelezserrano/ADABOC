@@ -4,7 +4,7 @@ library(h2o,lib="~/MyRlibs")
 # Specify dataset ---------------------------------------------------------
 
 datasetDirName <- "datasets"
-datasetName <- "Parkinsons1"
+datasetName <- "bias_correction_ucl_TMED"
 
 # Load data ---------------------------------------------------------------
 
