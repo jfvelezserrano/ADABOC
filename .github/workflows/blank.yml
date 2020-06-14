@@ -34,6 +34,6 @@ jobs:
         mkdir ~/MyRlibs
         R -e 'install.packages("h2o",lib="~/MyRlibs")'
         R < code/H2O_Code_Without_DL.R --no-save
-        # R < code/H2O_Code_Only_DL.R --no-save
-        # R < code/copula_learning_example.R --no-save
+        R < code/H2O_Code_Only_DL.R --no-save
+        R < code/copula_learning_example.R --no-save
         
