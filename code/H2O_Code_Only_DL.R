@@ -4,7 +4,7 @@ library(h2o,lib="~/MyRlibs")
 # Specify dataset ---------------------------------------------------------
 
 datasetDirName <- "datasets"
-datasetName <- "Parkinsons2"
+datasetName <- "kdd"
 
 # Load data ---------------------------------------------------------------
 
