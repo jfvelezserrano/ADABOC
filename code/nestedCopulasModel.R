@@ -15,7 +15,7 @@ library(caTools)
 library(rapportools)
 
 ###################################################################
-## function that develops the copula model                       ##
+## function that develops the Nested Copulas Model (NCM)         ##
 ##                                                               ##
 ## Input parameters:                                             ##
 ##                                                               ##
@@ -51,7 +51,7 @@ source('code/fit_var_cop.R')
 source('code/eval_metric_functions.R')
 source('code/score_cop.R')
 
-copulaLearningMethod<- function(trainingDataset = NULL,
+nestedCopulasModel    <- function(trainingDataset = NULL,
                          target_name = NULL,
                          validationDataset = NULL,
                          testDataset = NULL,

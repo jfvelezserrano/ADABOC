@@ -1,5 +1,5 @@
 ###################################################################
-## function to score a table with a copula model                 ##
+## function to score a table using NCM                           ##
 ##                                                               ##
 ## Input parameters:                                             ##
 ##                                                               ##
@@ -12,8 +12,8 @@
 ## - prediction: predictions for the score data                  ##
 ###################################################################
 
-copulaLearningMethodPredict <- function(scoreDataset = NULL,
-                           copulaModel = NULL){
+nestedCopulasModelPredict  <- function(scoreDataset = NULL,
+                                       copulaModel = NULL){
   
   ## required sources
   source('code/score_copula_opt.R')

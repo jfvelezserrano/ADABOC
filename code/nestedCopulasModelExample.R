@@ -21,8 +21,8 @@ scoreData$ID      <- NULL
 
 # Training a model ---------------------------------------------------------------
 print("Training model")
-source("code/copulaLearningMethod.R")
-model <- copulaLearningMethod(trainingDataset = trainData, 
+source("code/nestedCopulasModel.R")
+model <- nestedCopulasModel  (trainingDataset = trainData, 
                               target_name = "TARGET", 
                               validationDataset = validationData, 
                               testDataset=testData,
@@ -34,6 +34,6 @@ model <- copulaLearningMethod(trainingDataset = trainData,
 
 # Using the model ---------------------------------------------------------------
 print("Using model")
-source("code/copulaLearningMethodPredict.R")
-table  <- copulaLearningMethodPredict(scoreDataset = as.data.frame(scoreData), copulaModel = model)
+source("code/nestedCopulasModelPredict.R")
+table  <- nestedCopulasModelPredict(scoreDataset = as.data.frame(scoreData), copulaModel = model)
 # print(table)
