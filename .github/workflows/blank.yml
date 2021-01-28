@@ -28,7 +28,7 @@ jobs:
         sudo add-apt-repository ppa:marutter/rrutter3.5
         sudo add-apt-repository ppa:marutter/c2d4u3.5
         sudo apt-get update
-        sudo apt-get install r-base
+        sudo apt-get install r-base r-cran-ggplot2 r-cran-readxl
         sudo apt-get install r-cran-tidyverse r-cran-bitops r-cran-catools r-cran-vinecopula r-cran-ks r-cran-data.table r-cran-rapportools
         sudo apt-get install r-cran-rcurl r-cran-bitops r-cran-rjson r-cran-statmod libssl-dev
         mkdir ~/MyRlibs
