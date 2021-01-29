@@ -31,9 +31,9 @@ jobs:
         add-apt-repository -y ppa:marutter/rrutter3.5
         add-apt-repository -y ppa:marutter/c2d4u3.5
         apt-get update
-        apt-get install r-base 
-        apt-get install r-cran-tidyverse r-cran-bitops r-cran-catools r-cran-vinecopula r-cran-ks r-cran-data.table r-cran-rapportools
-        apt-get install r-cran-rcurl r-cran-bitops r-cran-rjson r-cran-statmod libssl-dev
+        apt-get install -y r-base 
+        apt-get install -y r-cran-tidyverse r-cran-bitops r-cran-catools r-cran-vinecopula r-cran-ks r-cran-data.table r-cran-rapportools
+        apt-get install -y r-cran-rcurl r-cran-bitops r-cran-rjson r-cran-statmod libssl-dev
         mkdir ~/MyRlibs
         R -e 'install.packages("h2o",lib="~/MyRlibs")'
         R < code/H2O_Code_Without_DL.R --no-save
