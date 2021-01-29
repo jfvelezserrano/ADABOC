@@ -26,11 +26,13 @@ model <- nestedCopulasModel  (trainingDataset = trainData,
                               target_name = "TARGET", 
                               validationDataset = validationData, 
                               testDataset=testData,
-                              maxiter = 201,
-                              numBins = 2000,
-                              subsamplePercent = 60,
-                              earlyStoppingIterations = 10,
-                              epsilon = 14)
+                              maxiter = 10,
+                              numBins = 500,
+                              subsamplePercent = NULL,
+                              earlyStoppingIterations = 0,
+                              evalMetric  = "MAE",
+                              epsilon = 5,
+                              verbosity = TRUE)
 
 # Using the model ---------------------------------------------------------------
 print("Using model")
