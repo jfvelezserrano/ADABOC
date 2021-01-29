@@ -15,7 +15,8 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-18.04
+    container:
+      image: ubuntu:18.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -25,12 +26,14 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
       run: |
-        sudo add-apt-repository ppa:marutter/rrutter3.5
-        sudo add-apt-repository ppa:marutter/c2d4u3.5
-        sudo apt-get update
-        sudo apt-get install r-base r-api-3.5 r-cran-rcolorbrewer r-cran-scales r-cran-cellranger r-cran-ggplot2 r-cran-readxl
-        sudo apt-get install r-cran-tidyverse r-cran-bitops r-cran-catools r-cran-vinecopula r-cran-ks r-cran-data.table r-cran-rapportools
-        sudo apt-get install r-cran-rcurl r-cran-bitops r-cran-rjson r-cran-statmod libssl-dev
+        apt-get update
+        apt-get install software-properties-common
+        add-apt-repository ppa:marutter/rrutter3.5
+        add-apt-repository ppa:marutter/c2d4u3.5
+        apt-get update
+        apt-get install r-base 
+        apt-get install r-cran-tidyverse r-cran-bitops r-cran-catools r-cran-vinecopula r-cran-ks r-cran-data.table r-cran-rapportools
+        apt-get install r-cran-rcurl r-cran-bitops r-cran-rjson r-cran-statmod libssl-dev
         mkdir ~/MyRlibs
         R -e 'install.packages("h2o",lib="~/MyRlibs")'
         R < code/H2O_Code_Without_DL.R --no-save
