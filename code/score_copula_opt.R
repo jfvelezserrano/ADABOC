@@ -106,7 +106,7 @@ score_copula_opt <- function(input_data,
   
   ## we calculate the expectation for each variable value to obtain the
   ## marginal distribution of the variable
-  grid_cdf_data <- grid_cdf_data[, margin_prob := estim_area(y, distr_cop), by = var_agrup]
+  grid_cdf_data <- grid_cdf_data[, margin_prob := estimateArea(y, distr_cop), by = var_agrup]
   
   ## we calculate the disribution of the error condicionated to the variable 
   grid_cdf_data$distr_condic <- grid_cdf_data$distr_cop/grid_cdf_data$margin_prob
@@ -115,7 +115,7 @@ score_copula_opt <- function(input_data,
   ## value of the variable 
   grid_cdf_data$expectation <- grid_cdf_data$distr_condic*grid_cdf_data$y_orig
   
-  grid_cdf_data <- grid_cdf_data[, condic_expectation := estim_area(y, expectation), by = var_agrup]
+  grid_cdf_data <- grid_cdf_data[, condic_expectation := estimateArea(y, expectation), by = var_agrup]
   
   grid_condic_expectation <- grid_cdf_data[, c(var_indep, 'condic_expectation'), with = FALSE]
   
