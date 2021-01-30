@@ -1,7 +1,6 @@
 ## Fix seed of the process of simulation
 set.seed(1234)
 
-
 ## function to calculate the cdf of a variable via kernel estimators
 ker_cdf <- function(x){
   predict(ks::kcde(x), x = as.matrix(x))
@@ -15,7 +14,7 @@ data_vector <- function(x, num_data = n2){
 ## function to estimate the area under a curve, in this case the density function 
 ## of the selected copula
 estimateArea <- function(dis, par2){
-  sum(abs(diff(dis)*caTools::runmean(par2, 3)[1:(length(dis)-1)]))
+  sum(diff(dis)*caTools::runmean(par2, 3)[1:(length(dis)-1)])
 }
 
 ## function to calculate the best fit copula for the pair (variable, error)

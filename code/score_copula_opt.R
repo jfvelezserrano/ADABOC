@@ -57,7 +57,7 @@ score_copula_opt <- function(input_data,
       cdf_aux$round <- round(cdf_aux$cdf, 7)
       group_table <- cdf_aux %>% 
         group_by(round) %>%
-        summarise(mean = mean(uni_data_sim), .groups = 'drop_last')
+        summarise(mean = mean(uni_data_sim))
       
       y2 <- group_table$mean
     }
@@ -92,6 +92,8 @@ score_copula_opt <- function(input_data,
   grid_cdf_data <- grid_cdf_data[!ind_dup, ]
   grid_data_orig <- grid_data_orig[!ind_dup, ]
   
+  grid_cdf_data <- cbind(grid_cdf_data,
+                         grid_data_orig)
   
   ## we calculate the density of all the values in the grid (variable, error)
   distr_cop <- BiCopPDF(unlist(grid_cdf_data[,1]), unlist(grid_cdf_data[,2]), optim_copula)
@@ -110,7 +112,7 @@ score_copula_opt <- function(input_data,
   
   ## finally we calculate the condicional expectation of an error subject to a specific
   ## value of the variable 
-  grid_cdf_data$expectation <- grid_cdf_data$distr_condic*grid_cdf_data$y
+  grid_cdf_data$expectation <- grid_cdf_data$distr_condic*grid_cdf_data$y_orig
   
   grid_cdf_data <- grid_cdf_data[, condic_expectation := estimateArea(y, expectation), by = var_agrup]
   
@@ -124,8 +126,7 @@ score_copula_opt <- function(input_data,
   ## of the error variable 
   real_data <- grid_cdf_data[!duplicated(grid_cdf_data[,d, with = FALSE]), d, with = FALSE]
   
-  grid_condic_expectation$estim_copula <- sapply(grid_condic_expectation$condic_expectation,
-                                         function(x){y2[min(which(x < real_data))]})
+  grid_condic_expectation$estim_copula <- grid_condic_expectation$condic_expectation
   
   grid_condic_expectation$lower_int <- 0
   grid_condic_expectation$upper_int <- 0
@@ -135,7 +136,7 @@ score_copula_opt <- function(input_data,
  
   names2 <- c(paste(names(train)[-d], '_orig', sep = ''), 'estim_copula', 'lower_int', 'upper_int')
   
-  score <- score_join[, ..names2]
+  score <- score_join[, names2]
   colnames(score)[1:(d-1)] <- paste0(colnames(input_data)[1:(d-1)])
   score <- score  %>% left_join(input_data, by = names)
   

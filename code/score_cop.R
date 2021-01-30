@@ -38,22 +38,19 @@ score_cop <- function(train_aux,
     row_start <- 1
     row_end <- min(c(floor(row_start + (1000000/numBins)),n))
     for (i in 1:maxiter){
-          
-     if (row_start <= row_end){
-            train_aux_2 <- data.frame(train_aux[row_start:row_end,])
-            colnames(train_aux_2) <- colnames(train_aux)
-            results_aux <- score_copula_opt(input_data = train_aux_2,
-                                            numBins = numBins,
-                                            optim_copula = best_copula,
-                                            train =  train_var)
-
-            results <- rbind(results, results_aux)
-            row_start <- row_end + 1
-            row_end <- min(c(floor(row_start + (1000000/numBins)),n))
-      }      
-    
+	  if (row_start <= row_end){
+        train_aux_2 <- data.frame(train_aux[row_start:row_end,])
+        colnames(train_aux_2) <- colnames(train_aux)
+        results_aux <- score_copula_opt(input_data = train_aux_2,
+                                        numBins = numBins,
+                                        optim_copula = best_copula,
+                                        train =  train_var)
+      
+        results <- rbind(results, results_aux)
+        row_start <- row_end + 1
+        row_end <- min(c(floor(row_start + (1000000/numBins)),n))
+	  }
     }
-        
   } else {
     results <- score_copula_opt(input_data = train_aux,
                                 numBins = numBins,
@@ -87,8 +84,7 @@ score_cop <- function(train_aux,
                                  ind_indepCopula = 0)
   results <- results %>% left_join(train_aux, by = colnames(train_aux)[1])
   errors_aux[[5]] <- best_copula
-  names <- c(colnames(train_aux)[1], 'error_cop')
-  info_iter <- results[,..names]
+  info_iter <- results[,c(colnames(train_aux)[1], 'error_cop')]
   info_iter <- info_iter[!duplicated(info_iter),]
   errors_aux[[6]] <- info_iter
   
