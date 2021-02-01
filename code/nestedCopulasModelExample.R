@@ -1,7 +1,7 @@
 options(width=180)
 
 # Load data --------------------------------------------------------------
-datasetName    <- "communities_unnormalized"
+datasetName    <- "Airfoil"
 datasetDirName <- "datasets"
 
 trainDataName      <- paste0(datasetDirName, "/", datasetName,"_train",      ".csv")
