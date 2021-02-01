@@ -57,7 +57,7 @@ score_copula_opt <- function(input_data,
       cdf_aux$round <- round(cdf_aux$cdf, 7)
       group_table <- cdf_aux %>% 
         group_by(round) %>%
-        summarise(mean = mean(uni_data_sim))
+        summarise(mean = mean(uni_data_sim), .groups = 'drop')
       
       y2 <- group_table$mean
     }
@@ -140,6 +140,7 @@ score_copula_opt <- function(input_data,
  
   names2 <- c(paste(names(train)[-d], '_orig', sep = ''), 'estim_copula', 'lower_int', 'upper_int')
   
+  score_join <- data.frame(score_join)
   score <- score_join[, names2]
   colnames(score)[1:(d-1)] <- paste0(colnames(input_data)[1:(d-1)])
   score <- score  %>% left_join(input_data, by = names)
