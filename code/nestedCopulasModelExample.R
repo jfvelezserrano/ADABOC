@@ -1,7 +1,7 @@
 options(width=180)
 
 # Load data --------------------------------------------------------------
-datasetName    <- "Bias2"
+datasetName    <- "Parkinsons1"
 datasetDirName <- "datasets"
 
 trainDataName      <- paste0(datasetDirName, "/", datasetName,"_train",      ".csv")
@@ -19,6 +19,91 @@ validationData$ID <- NULL
 testData$ID       <- NULL
 # scoreData$ID      <- NULL
 
+
+# Training a model ---------------------------------------------------------------
+print("******************** Training model 10")
+source("code/nestedCopulasModel.R")
+model <- nestedCopulasModel  (trainingDataset = trainData, 
+                              target_name = "TARGET", 
+                              validationDataset = validationData, 
+                              testDataset=testData,
+                              maxiter = 200,
+                              numBins = 2000,
+                              subsamplePercent = 10,
+                              earlyStoppingIterations = 10,
+                              epsilon = 14)
+
+print("******************** Training model 20")
+source("code/nestedCopulasModel.R")
+model <- nestedCopulasModel  (trainingDataset = trainData, 
+                              target_name = "TARGET", 
+                              validationDataset = validationData, 
+                              testDataset=testData,
+                              maxiter = 200,
+                              numBins = 2000,
+                              subsamplePercent = 20,
+                              earlyStoppingIterations = 10,
+                              epsilon = 14)
+
+print("******************** Training model 30")
+source("code/nestedCopulasModel.R")
+model <- nestedCopulasModel  (trainingDataset = trainData, 
+                              target_name = "TARGET", 
+                              validationDataset = validationData, 
+                              testDataset=testData,
+                              maxiter = 200,
+                              numBins = 2000,
+                              subsamplePercent = 30,
+                              earlyStoppingIterations = 10,
+                              epsilon = 14)
+
+print("******************** Training model 40")
+source("code/nestedCopulasModel.R")
+model <- nestedCopulasModel  (trainingDataset = trainData, 
+                              target_name = "TARGET", 
+                              validationDataset = validationData, 
+                              testDataset=testData,
+                              maxiter = 200,
+                              numBins = 2000,
+                              subsamplePercent = 40,
+                              earlyStoppingIterations = 10,
+                              epsilon = 14)
+
+print("******************** Training model 50")
+source("code/nestedCopulasModel.R")
+model <- nestedCopulasModel  (trainingDataset = trainData, 
+                              target_name = "TARGET", 
+                              validationDataset = validationData, 
+                              testDataset=testData,
+                              maxiter = 200,
+                              numBins = 2000,
+                              subsamplePercent = 50,
+                              earlyStoppingIterations = 10,
+                              epsilon = 14)
+
+print("******************** Training model 60")
+source("code/nestedCopulasModel.R")
+model <- nestedCopulasModel  (trainingDataset = trainData, 
+                              target_name = "TARGET", 
+                              validationDataset = validationData, 
+                              testDataset=testData,
+                              maxiter = 200,
+                              numBins = 2000,
+                              subsamplePercent = 60,
+                              earlyStoppingIterations = 10,
+                              epsilon = 14)
+
+print("******************** Training model 70")
+source("code/nestedCopulasModel.R")
+model <- nestedCopulasModel  (trainingDataset = trainData, 
+                              target_name = "TARGET", 
+                              validationDataset = validationData, 
+                              testDataset=testData,
+                              maxiter = 200,
+                              numBins = 2000,
+                              subsamplePercent = 70,
+                              earlyStoppingIterations = 10,
+                              epsilon = 14)
 
 print("******************** Training model 80")
 source("code/nestedCopulasModel.R")
