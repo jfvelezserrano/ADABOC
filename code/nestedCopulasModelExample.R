@@ -1,7 +1,7 @@
 options(width=180)
 
 # Load data --------------------------------------------------------------
-datasetName    <- "Parkinsons2"
+datasetName    <- "electrical_grid"
 datasetDirName <- "datasets"
 
 trainDataName      <- paste0(datasetDirName, "/", datasetName,"_train",      ".csv")
