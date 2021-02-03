@@ -220,7 +220,7 @@ nestedCopulasModel    <- function(trainingDataset = NULL,
   print("COMPROBACION 2")
   print(head(variables_table))
   
-  variables_table <- variables_table[names(variables_table) %in% non_unary_variables[non_unary_variables!="Target"],]
+  variables_table <- as.list(variables_table[names(variables_table) %in% non_unary_variables[non_unary_variables!="Target"],])
   print("COMPROBACION 3")
   print(head(variables_table))
   train_variables <- train_variables[names(train_variables) %in% non_unary_variables[non_unary_variables!="Target"]]
