@@ -236,7 +236,8 @@ nestedCopulasModel    <- function(trainingDataset = NULL,
   colnames(testDataset)[colnames(testDataset)!="Target"] <- paste0('var_', 1:num_variables)
 
   print(paste("Hola",num_variables))
-  print(paste("Hola",paste0('var_', 1:num_variables)))
+  print(paste0('var_', 1:num_variables))
+  print(names(variables_table))
     
   names(variables_table) <- c(paste0('var_', 1:num_variables))
   names(train_variables) <- paste0('var_', 1:num_variables)
