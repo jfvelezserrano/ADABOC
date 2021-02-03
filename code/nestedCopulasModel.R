@@ -213,19 +213,11 @@ nestedCopulasModel    <- function(trainingDataset = NULL,
   }
   
   ## we store all the non unary variables in a  table 
-  variables_table <- as.data.frame(mapply(c, check_unary_variables, valid_data))
-  print("COMPROBACION 1")
-  print(head(variables_table))
-  variables_table <- as.data.frame(mapply(c, variables_table, test_data))
-  print("COMPROBACION 2")
-  print(head(variables_table))
+  variables_table <- mapply(c, check_unary_variables, valid_data)
+  variables_table <- mapply(c, variables_table, test_data)
   
-  variables_table <- as.list(variables_table[names(variables_table) %in% non_unary_variables[non_unary_variables!="Target"],])
-  print("COMPROBACION 3")
-  print(head(variables_table))
+  variables_table <- variables_table[names(variables_table) %in% non_unary_variables[non_unary_variables!="Target"]]
   train_variables <- train_variables[names(train_variables) %in% non_unary_variables[non_unary_variables!="Target"]]
-  print("CLASS CONJUNTO TRAIN")
-  print(class(train_variables))
   variables_table <- lapply(variables_table, function(x){x[!duplicated(x)]})
   
   variables <- names(trainingDataset)[which(names(trainingDataset)!="Target")]
@@ -242,10 +234,6 @@ nestedCopulasModel    <- function(trainingDataset = NULL,
   colnames(trainingDataset)[colnames(trainingDataset)!="Target"] <- paste0('var_', 1:num_variables)
   colnames(validationDataset)[colnames(validationDataset)!="Target"] <- paste0('var_', 1:num_variables)
   colnames(testDataset)[colnames(testDataset)!="Target"] <- paste0('var_', 1:num_variables)
-
-  print(paste("Hola",num_variables))
-  print(paste0('var_', 1:num_variables))
-  print(names(variables_table))
     
   names(variables_table) <- c(paste0('var_', 1:num_variables))
   names(train_variables) <- paste0('var_', 1:num_variables)
