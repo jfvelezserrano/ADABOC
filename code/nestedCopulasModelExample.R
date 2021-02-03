@@ -1,7 +1,7 @@
 options(width=180)
 
 # Load data --------------------------------------------------------------
-datasetName    <- "electrical_grid"
+datasetName    <- "kdd"
 datasetDirName <- "datasets"
 
 
