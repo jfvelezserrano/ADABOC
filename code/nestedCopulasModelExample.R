@@ -4,6 +4,7 @@ options(width=180)
 datasetName    <- "electrical_grid"
 datasetDirName <- "datasets"
 
+
 trainDataName      <- paste0(datasetDirName, "/", datasetName,"_train",      ".csv")
 validationDataName <- paste0(datasetDirName, "/", datasetName,"_validation", ".csv")
 testDataName       <- paste0(datasetDirName, "/", datasetName,"_test",       ".csv")
