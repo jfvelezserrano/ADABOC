@@ -224,6 +224,8 @@ nestedCopulasModel    <- function(trainingDataset = NULL,
   print("COMPROBACION 3")
   print(head(variables_table))
   train_variables <- train_variables[names(train_variables) %in% non_unary_variables[non_unary_variables!="Target"]]
+  print("CLASS CONJUNTO TRAIN")
+  print(class(train_variables))
   variables_table <- lapply(variables_table, function(x){x[!duplicated(x)]})
   
   variables <- names(trainingDataset)[which(names(trainingDataset)!="Target")]
