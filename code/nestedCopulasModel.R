@@ -214,9 +214,15 @@ nestedCopulasModel    <- function(trainingDataset = NULL,
   
   ## we store all the non unary variables in a  table 
   variables_table <- mapply(c, check_unary_variables, valid_data)
+  print("COMPROBACION 1")
+  print(head(variables_table))
   variables_table <- mapply(c, variables_table, test_data)
+  print("COMPROBACION 2")
+  print(head(variables_table))
   
   variables_table <- variables_table[names(variables_table) %in% non_unary_variables[non_unary_variables!="Target"]]
+  print("COMPROBACION 3")
+  print(head(variables_table))
   train_variables <- train_variables[names(train_variables) %in% non_unary_variables[non_unary_variables!="Target"]]
   variables_table <- lapply(variables_table, function(x){x[!duplicated(x)]})
   
