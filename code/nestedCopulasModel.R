@@ -222,7 +222,6 @@ nestedCopulasModel    <- function(trainingDataset = NULL,
   
   variables <- names(trainingDataset)[which(names(trainingDataset)!="Target")]
   num_variables <- length(variables)
-  print(paste("Hola",num_variables))
   var_model <- paste0('var_', 1:num_variables)
   max_dim_copulas <- 2 
   
@@ -235,7 +234,10 @@ nestedCopulasModel    <- function(trainingDataset = NULL,
   colnames(trainingDataset)[colnames(trainingDataset)!="Target"] <- paste0('var_', 1:num_variables)
   colnames(validationDataset)[colnames(validationDataset)!="Target"] <- paste0('var_', 1:num_variables)
   colnames(testDataset)[colnames(testDataset)!="Target"] <- paste0('var_', 1:num_variables)
-  
+
+  print(paste("Hola",num_variables))
+  print(paste("Hola",paste0('var_', 1:num_variables)))
+    
   names(variables_table) <- c(paste0('var_', 1:num_variables))
   names(train_variables) <- paste0('var_', 1:num_variables)
   
