@@ -20,22 +20,6 @@ validationData$ID <- NULL
 testData$ID       <- NULL
 # scoreData$ID      <- NULL
 
-
-
-
-
-print("******************** Training model 60")
-source("code/nestedCopulasModel.R")
-model <- nestedCopulasModel  (trainingDataset = trainData, 
-                              target_name = "TARGET", 
-                              validationDataset = validationData, 
-                              testDataset=testData,
-                              maxiter = 200,
-                              numBins = 2000,
-                              subsamplePercent = 60,
-                              earlyStoppingIterations = 10,
-                              epsilon = 14)
-
 print("******************** Training model 70")
 source("code/nestedCopulasModel.R")
 model <- nestedCopulasModel  (trainingDataset = trainData, 
