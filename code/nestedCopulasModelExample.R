@@ -22,29 +22,7 @@ testData$ID       <- NULL
 
 
 
-print("******************** Training model 40")
-source("code/nestedCopulasModel.R")
-model <- nestedCopulasModel  (trainingDataset = trainData, 
-                              target_name = "TARGET", 
-                              validationDataset = validationData, 
-                              testDataset=testData,
-                              maxiter = 200,
-                              numBins = 2000,
-                              subsamplePercent = 40,
-                              earlyStoppingIterations = 10,
-                              epsilon = 14)
 
-print("******************** Training model 50")
-source("code/nestedCopulasModel.R")
-model <- nestedCopulasModel  (trainingDataset = trainData, 
-                              target_name = "TARGET", 
-                              validationDataset = validationData, 
-                              testDataset=testData,
-                              maxiter = 200,
-                              numBins = 2000,
-                              subsamplePercent = 50,
-                              earlyStoppingIterations = 10,
-                              epsilon = 14)
 
 print("******************** Training model 60")
 source("code/nestedCopulasModel.R")
