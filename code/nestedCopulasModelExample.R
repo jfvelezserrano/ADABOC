@@ -21,42 +21,6 @@ testData$ID       <- NULL
 # scoreData$ID      <- NULL
 
 
-# Training a model ---------------------------------------------------------------
-print("******************** Training model 10")
-source("code/nestedCopulasModel.R")
-model <- nestedCopulasModel  (trainingDataset = trainData, 
-                              target_name = "TARGET", 
-                              validationDataset = validationData, 
-                              testDataset=testData,
-                              maxiter = 200,
-                              numBins = 2000,
-                              subsamplePercent = 10,
-                              earlyStoppingIterations = 10,
-                              epsilon = 14)
-
-print("******************** Training model 20")
-source("code/nestedCopulasModel.R")
-model <- nestedCopulasModel  (trainingDataset = trainData, 
-                              target_name = "TARGET", 
-                              validationDataset = validationData, 
-                              testDataset=testData,
-                              maxiter = 200,
-                              numBins = 2000,
-                              subsamplePercent = 20,
-                              earlyStoppingIterations = 10,
-                              epsilon = 14)
-
-print("******************** Training model 30")
-source("code/nestedCopulasModel.R")
-model <- nestedCopulasModel  (trainingDataset = trainData, 
-                              target_name = "TARGET", 
-                              validationDataset = validationData, 
-                              testDataset=testData,
-                              maxiter = 200,
-                              numBins = 2000,
-                              subsamplePercent = 30,
-                              earlyStoppingIterations = 10,
-                              epsilon = 14)
 
 print("******************** Training model 40")
 source("code/nestedCopulasModel.R")
