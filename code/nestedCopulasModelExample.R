@@ -20,18 +20,6 @@ validationData$ID <- NULL
 testData$ID       <- NULL
 # scoreData$ID      <- NULL
 
-print("******************** Training model 70")
-source("code/nestedCopulasModel.R")
-model <- nestedCopulasModel  (trainingDataset = trainData, 
-                              target_name = "TARGET", 
-                              validationDataset = validationData, 
-                              testDataset=testData,
-                              maxiter = 200,
-                              numBins = 2000,
-                              subsamplePercent = 70,
-                              earlyStoppingIterations = 10,
-                              epsilon = 14)
-
 print("******************** Training model 80")
 source("code/nestedCopulasModel.R")
 model <- nestedCopulasModel  (trainingDataset = trainData, 
@@ -44,29 +32,6 @@ model <- nestedCopulasModel  (trainingDataset = trainData,
                               earlyStoppingIterations = 10,
                               epsilon = 14)
 
-print("******************** Training model 90")
-source("code/nestedCopulasModel.R")
-model <- nestedCopulasModel  (trainingDataset = trainData, 
-                              target_name = "TARGET", 
-                              validationDataset = validationData, 
-                              testDataset=testData,
-                              maxiter = 200,
-                              numBins = 2000,
-                              subsamplePercent = 90,
-                              earlyStoppingIterations = 10,
-                              epsilon = 14)
-
-print("******************** Training model 100")
-source("code/nestedCopulasModel.R")
-model <- nestedCopulasModel  (trainingDataset = trainData, 
-                              target_name = "TARGET", 
-                              validationDataset = validationData, 
-                              testDataset=testData,
-                              maxiter = 200,
-                              numBins = 2000,
-                              subsamplePercent = NULL,
-                              earlyStoppingIterations = 10,
-                              epsilon = 14)
 
 # Using the model ---------------------------------------------------------------
 # print("Using model")
