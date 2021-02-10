@@ -38,7 +38,7 @@ jobs:
         apt-get install -y openjdk-8-jdk
         mkdir ~/MyRlibs
         R -e 'install.packages("h2o",lib="~/MyRlibs")'
-        R < code/H2O_Code_Without_DL.R --no-save
+        # R < code/H2O_Code_Without_DL.R --no-save
         # R < code/H2O_Code_Only_DL.R --no-save
-        # R < code/nestedCopulasModelExample.R --no-save
+        R < code/nestedCopulasModelExample.R --no-save
         
