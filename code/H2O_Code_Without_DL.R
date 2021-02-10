@@ -4,7 +4,7 @@
 # Dataset -----------------------------------------------------------------
 
 datasetDirName <- "datasets"
-datasetName <- "Bias2"
+datasetName <- "Parkinsons1"
 
 # Load data ---------------------------------------------------------------
 
