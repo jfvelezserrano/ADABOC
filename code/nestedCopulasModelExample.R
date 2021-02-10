@@ -27,7 +27,7 @@ model <- nestedCopulasModel  (trainingDataset = trainData,
                               testDataset=testData,
                               maxiter = 200,
                               numBins = 2000,
-                              subsamplePercent = 90,
+                              subsamplePercent = 20,
                               earlyStoppingIterations = 10,
                               epsilon = 14)
 
