@@ -1,5 +1,5 @@
 ## Fix seed of the process of simulation
-set.seed(1234)
+set.seed(12345)
 
 ## function to calculate the cdf of a variable via kernel estimators
 ker_cdf <- function(x){
