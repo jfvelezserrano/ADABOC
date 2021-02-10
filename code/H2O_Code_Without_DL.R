@@ -4,7 +4,7 @@
 # Dataset -----------------------------------------------------------------
 
 datasetDirName <- "datasets"
-datasetName <- "electrical_grid"
+datasetName <- "kdd"
 
 # Load data ---------------------------------------------------------------
 
