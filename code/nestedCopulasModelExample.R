@@ -1,7 +1,7 @@
 options(width=180)
 
 # Load data --------------------------------------------------------------
-datasetName    <- "electrical_grid"
+datasetName    <- "kdd"
 datasetDirName <- "datasets"
 
 trainDataName      <- paste0(datasetDirName, "/", datasetName,"_train",      ".csv")
@@ -27,7 +27,7 @@ model <- nestedCopulasModel  (trainingDataset = trainData,
                               testDataset=testData,
                               maxiter = 200,
                               numBins = 2000,
-                              subsamplePercent = 80,
+                              subsamplePercent = 20,
                               earlyStoppingIterations = 10,
                               epsilon = 14)
 

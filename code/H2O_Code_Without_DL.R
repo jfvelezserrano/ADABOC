@@ -62,7 +62,7 @@ predictors <- names(inputs)
 
 # AutoML ----------------------------------------------------------------
 
-mySeed <- 1234
+mySeed <- 12345
 set.seed(mySeed)
 maxNumModels <- 10
 
