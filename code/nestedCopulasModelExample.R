@@ -33,7 +33,7 @@ model <- nestedCopulasModel  (trainingDataset = trainData,
 
 
 # Using the model ---------------------------------------------------------------
-# print("Using model")
-# source("code/nestedCopulasModelPredict.R")
-# table  <- nestedCopulasModelPredict(scoreDataset = as.data.frame(scoreData), copulaModel = model)
-# print(table)
+print("Using model")
+source("code/nestedCopulasModelPredict.R")
+table  <- nestedCopulasModelPredict(scoreDataset = as.data.frame(scoreData), copulaModel = model)
+print(table)
