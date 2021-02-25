@@ -4,7 +4,7 @@
 # Dataset -----------------------------------------------------------------
 
 datasetDirName <- "datasets"
-datasetName <- "bias_correction_ucl_tmed"
+datasetName <- "kdd"
 
 # Load data ---------------------------------------------------------------
 
