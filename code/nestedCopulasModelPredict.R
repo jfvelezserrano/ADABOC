@@ -77,12 +77,12 @@ nestedCopulasModelPredict  <- function(scoreDataset = NULL,
       if (j == 1){
         coincidences <- data.frame(apply(as.matrix(values_scores[,j]),
                                           1,
-                                          function(x){x %in% as.matrix(copulaModel$copulaModel$iterations[[i]]$inf_iter[,..j])}))
+                                          function(x){x %in% as.matrix(copulaModel$copulaModel$iterations[[i]]$inf_iter[,j])}))
       } else {
         coincidences <- cbind(coincidences,
                                apply(as.matrix(values_scores[,j]),
                                      1,
-                                     function(x){x %in% as.matrix(copulaModel$copulaModel$iterations[[i]]$inf_iter[,..j])}))
+                                     function(x){x %in% as.matrix(copulaModel$copulaModel$iterations[[i]]$inf_iter[,j])}))
       }
     }
     
@@ -137,7 +137,7 @@ nestedCopulasModelPredict  <- function(scoreDataset = NULL,
       names(results)[names(results) == 'error'] <- 'error_cop'
       
       iter_compose <- c(var_iter, "error_cop")
-      results2 <- rbind(results[,..iter_compose],
+      results2 <- rbind(results[,iter_compose],
                         info_iter)
       
       results3 <- copulaModel$copulaModel$train %>% left_join(results2, by = var_iter)
