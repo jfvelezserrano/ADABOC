@@ -8,7 +8,7 @@ datasetName <- "kdd"
 
 # Load data ---------------------------------------------------------------
 
-trainDataName      <- paste0(datasetDirName, "/", datasetName,"_train",      ".csv")
+trainDataName      <- past(datasetDirName, "/", datasetName,"_train",      ".csv")
 validationDataName <- paste0(datasetDirName, "/", datasetName,"_validation", ".csv")
 testDataName       <- paste0(datasetDirName, "/", datasetName,"_test",       ".csv")
 
