@@ -1,7 +1,7 @@
 options(width=180)
 
 # Load data --------------------------------------------------------------
-datasetName    <- "Concrete"
+datasetName    <- "kdd"
 datasetDirName <- "datasets"
 
 trainDataName      <- paste0(datasetDirName, "/", datasetName,"_train",      ".csv")
@@ -12,12 +12,12 @@ scoreDataName      <- paste0(datasetDirName, "/", datasetName,"_score",      ".c
 trainData      <- read.csv(trainDataName,      sep=",",head=TRUE)
 validationData <- read.csv(validationDataName, sep=",",head=TRUE)
 testData       <- read.csv(testDataName,       sep=",",head=TRUE)
-# scoreData      <- read.csv(scoreDataName,      sep=",",head=TRUE)
+scoreData      <- read.csv(scoreDataName,      sep=",",head=TRUE)
 
 trainData$ID      <- NULL
 validationData$ID <- NULL
 testData$ID       <- NULL
-# scoreData$ID      <- NULL
+scoreData$ID      <- NULL
 
 print("******************** Training model 80")
 source("code/nestedCopulasModel.R")
@@ -33,7 +33,7 @@ model <- nestedCopulasModel  (trainingDataset = trainData,
 
 
 # Using the model ---------------------------------------------------------------
-# print("Using model")
-# source("code/nestedCopulasModelPredict.R")
-# table  <- nestedCopulasModelPredict(scoreDataset = as.data.frame(scoreData), copulaModel = model)
-# print(table)
+print("Using model")
+source("code/nestedCopulasModelPredict.R")
+table  <- nestedCopulasModelPredict(scoreDataset = as.data.frame(scoreData), copulaModel = model)
+print(table)
