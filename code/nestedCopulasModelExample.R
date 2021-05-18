@@ -1,7 +1,7 @@
 options(width=180)
 
 # Load data --------------------------------------------------------------
-datasetName    <- "kdd"
+datasetName    <- "Concrete"
 datasetDirName <- "datasets"
 
 trainDataName      <- paste0(datasetDirName, "/", datasetName,"_train",      ".csv")
@@ -27,7 +27,7 @@ model <- nestedCopulasModel  (trainingDataset = trainData,
                               testDataset=testData,
                               maxiter = 200,
                               numBins = 2000,
-                              subsamplePercent = 20,
+                              subsamplePercent = 80,
                               earlyStoppingIterations = 10,
                               epsilon = 14)
 
