@@ -17,7 +17,7 @@ testData       <- read.csv(testDataName,       sep=",",head=TRUE)
 trainData$ID      <- NULL
 validationData$ID <- NULL
 testData$ID       <- NULL
-scoreData$ID      <- NULL
+# scoreData$ID      <- NULL
 
 print("******************** Training model 80")
 source("code/nestedCopulasModel.R")
